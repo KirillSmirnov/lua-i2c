@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Frank Edelhaeuser <mrpace2@gmail.com>
+ * Copyright (c) 2017 Frank Edelhaeuser <mrpace2@gmail.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,8 +32,8 @@
 
 // definitions
 #define I2CLUA_NAME             "i2c"
-#define I2CLUA_VERSION          "1.0.0"
-#define I2CLUA_COPYRIGHT        "Copyright (C) 2014 Frank Edelhaeuser <fedel@users.sourceforge.net>"
+#define I2CLUA_VERSION          "1.0.1"
+#define I2CLUA_COPYRIGHT        "Copyright (C) 2017 Frank Edelhaeuser <mrpace2@gmail.com>"
 #define I2CLUA_LICENSE          "MIT License"
 #define I2CLUA_TIMESTAMP        __DATE__" "__TIME__
 
