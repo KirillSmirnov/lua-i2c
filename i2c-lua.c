@@ -26,13 +26,12 @@
 #include <lua.h>
 #include <lauxlib.h>
 
-#include <linux/i2c.h>
 #include <linux/i2c-dev.h>
 
 
 // definitions
 #define I2CLUA_NAME             "i2c"
-#define I2CLUA_VERSION          "1.0.1"
+#define I2CLUA_VERSION          "1.0.2"
 #define I2CLUA_COPYRIGHT        "Copyright (C) 2017 Frank Edelhaeuser <mrpace2@gmail.com>"
 #define I2CLUA_LICENSE          "MIT License"
 #define I2CLUA_TIMESTAMP        __DATE__" "__TIME__

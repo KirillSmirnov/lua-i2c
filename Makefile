@@ -18,7 +18,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-CFLAGS += -fPIC
+override CFLAGS += -fPIC
 
 i2c.so: i2c-lua.o
 	$(CC) $(CFLAGS) -shared -o $@ $^
