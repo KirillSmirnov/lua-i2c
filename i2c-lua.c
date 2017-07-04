@@ -31,7 +31,7 @@
 
 // definitions
 #define I2CLUA_NAME             "i2c"
-#define I2CLUA_VERSION          "1.0.2"
+#define I2CLUA_VERSION          "1.0.3"
 #define I2CLUA_COPYRIGHT        "Copyright (C) 2017 Frank Edelhaeuser <mrpace2@gmail.com>"
 #define I2CLUA_LICENSE          "MIT License"
 #define I2CLUA_TIMESTAMP        __DATE__" "__TIME__
@@ -279,7 +279,7 @@ static int i2clua_error(lua_State *L) {
 LUALIB_API int luaopen_i2c(lua_State *L) {
 
     int i;
-    const luaL_reg functions[] = {
+    const luaL_Reg functions[] = {
         { "read", i2clua_read },
         { "write", i2clua_write },
         { "writeread", i2clua_writeread },
