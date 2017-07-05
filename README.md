@@ -1,9 +1,9 @@
-I2C Lua Binding
+Lua I2C Binding
 ===============
 
 > *Author: Frank Edelhaeuser*
 
-This is the I2C Lua binding. This binding provides access from Lua scripts to I2C slave devices on I2C busses supported by the Linux kernel.
+This is the Lua I2C binding. This binding provides access from Lua scripts to I2C slave devices on I2C busses supported by the Linux kernel.
 
 
 #### Warning ####
@@ -15,12 +15,12 @@ This program can confuse your I2C bus, cause data loss and worse!
 
 If available, you may install a precompiled package for your platform. Otherwise, compile the Lua I2C extension library for your platform:
 
-    $ cd /path/to/i2c-lua
+    $ cd /path/to/lua-i2c
     $ make
 
-Depending on your setup, you may need additional prerequisite packages for sucessfully compiling this binding. `i2c-lua` requires GCC, I2C headers and Lua headers. If `make` fails, inspect the `make` output for any error messages. You can specify additional compiler options with the `make` command:
+Depending on your setup, you may need additional prerequisite packages for sucessfully compiling this binding. `lua-i2c` requires GCC, I2C headers and Lua headers. If `make` fails, inspect the `make` output for any error messages. You can specify additional compiler options with the `make` command:
 
-    $ make CFLAGS=-I/usr/include/lua5.1
+    $ make CFLAGS=-I/usr/include/lua5.3
 
 When `make` succeeds, it generates a shared library ``i2c.so``. Place this file into a location where Lua searches for extension modules (see http://www.lua.org/manual/5.1/manual.html#pdf-require). You may run:
 
@@ -54,14 +54,14 @@ to display a list of directories where Lua searches for extension modules.
         i2c.error(result, true)
     end
 
-See the API Reference below for more details on the services provided by the I2C Lua binding.
+See the API Reference below for more details on the services provided by the Lua I2C binding.
 
 
 
 #### API Reference ####
 
 
-This reference assumes that the I2C Lua binding was instantiated using this statement:
+This reference assumes that the Lua I2C binding was instantiated using this statement:
 
     local i2c = require("i2c")
 
@@ -156,7 +156,7 @@ Return Values:
 
 #### Support and Related Information ####
 
-Support for the I2C Lua Binding is provided using the Github issues system: https://github.com/mrpace2/i2c-lua/issues. Please DO NOT approach the author with support requests by email. Thank you!
+Support for the Lua I2C Binding is provided using the Github issues system: https://github.com/mrpace2/lua-i2c/issues. Please DO NOT approach the author with support requests by email. Thank you!
 
   * http://www.lua.org/manual/
   * http://www.lm-sensors.org/wiki/i2cToolsDocumentation

@@ -20,7 +20,7 @@
 
 override CFLAGS += -fPIC
 
-i2c.so: i2c-lua.o
+i2c.so: lua-i2c.o
 	$(CC) $(CFLAGS) -shared -o $@ $^
 
 test: i2c.so
