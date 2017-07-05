@@ -5,30 +5,40 @@ Lua I2C Binding
 
 This is the Lua I2C binding. This binding provides access from Lua scripts to I2C slave devices on I2C busses supported by the Linux kernel.
 
+*Note:* This binding will not compile or work on Windows because there is no OS support for I2C in Windows.
+
 
 #### Warning ####
 
 This program can confuse your I2C bus, cause data loss and worse!
 
+(The above note was copied from the [i2cdetect](https://linux.die.net/man/8/i2cdetect) series of Linux tools. Don't worry. If you're careful, it won't.)
+
 
 #### Compile and Install ####
 
-If available, you may install a precompiled package for your platform. Otherwise, compile the Lua I2C extension library for your platform:
+Lua I2C is available on [LuaRocks](https://luarocks.org/modules/mrpace2/i2c):
 
-    $ cd /path/to/lua-i2c
+    $ luarocks install i2c
+
+You may also clone this repo and compile the Lua I2C extension library for your platform:
+
+    $ git clone https://github.com/mrpace2/lua-i2c
+    $ cd lua-i2c
     $ make
 
-Depending on your setup, you may need additional prerequisite packages for sucessfully compiling this binding. `lua-i2c` requires GCC, I2C headers and Lua headers. If `make` fails, inspect the `make` output for any error messages. You can specify additional compiler options with the `make` command:
+Depending on your setup, you may need additional prerequisite packages for sucessfully compiling this binding. `lua-i2c` requires GCC, I2C headers and 
+Lua headers for your version of Lua. `lua-i2c` has been tested with Lua 5.1, 5.2 and 5.3.
+
+If `make` fails, carefully inspect the `make` output for any error messages. You may specify additional compiler options with the `make` command:
 
     $ make CFLAGS=-I/usr/include/lua5.3
 
-When `make` succeeds, it generates a shared library ``i2c.so``. Place this file into a location where Lua searches for extension modules (see http://www.lua.org/manual/5.1/manual.html#pdf-require). You may run:
+When `make` succeeds, it generates a shared library ``i2c.so``. Place this file into a location where Lua searches for extension modules. You may run:
 
     $ lua -l i2c
 
 to display a list of directories where Lua searches for extension modules.
-
-*Note:* This binding will not compile or work on Windows because there is no OS support for I2C in Windows.
 
 
 #### Code Example ####
@@ -57,7 +67,6 @@ to display a list of directories where Lua searches for extension modules.
 See the API Reference below for more details on the services provided by the Lua I2C binding.
 
 
-
 #### API Reference ####
 
 
@@ -65,12 +74,16 @@ This reference assumes that the Lua I2C binding was instantiated using this stat
 
     local i2c = require("i2c")
 
+You may use Lua 5.3's `string.pack` and `string.unpack` functions for encoding and decoding byte-packed data strings 
+(e.g. `'\0\1\2'` in the example above). If you're stuck with Lua 5.1 or 5.2 you may use the [struct](http://www.inf.puc-rio.br/~roberto/struct/) 
+library or the [lpack](https://luarocks.org/modules/luarocks/lpack) extension.
+
 
 ##### Read from I2C slave #####
 
     result, read-data = i2c.read(bus, address [, read-length])
 
-Performs a read transfer on the I2C bus consisting of these parts: 
+Performs a read transfer on the I2C bus consisting of these steps: 
 
   * START condition
   * Send read address
@@ -93,7 +106,7 @@ Return Values:
 
     result = i2c.write(bus, address [, write-data])
 
-Performs a write transfer on the I2C bus consisting of these parts: 
+Performs a write transfer on the I2C bus consisting of these steps: 
 
   * START condition
   * Send write address
@@ -115,7 +128,7 @@ Return Values:
 
     result, read-data = i2c.writeread(bus, address [, write-data [, read-length]])
 
-Performs a write-read transfer on the I2C bus consisting of these parts: 
+Performs a write-read transfer on the I2C bus consisting of these steps: 
 
   * START condition
   * Send write address

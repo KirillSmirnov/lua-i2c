@@ -31,7 +31,7 @@
 
 // definitions
 #define I2CLUA_NAME             "i2c"
-#define I2CLUA_VERSION          "1.1.0"
+#define I2CLUA_VERSION          "1.1.1"
 #define I2CLUA_COPYRIGHT        "Copyright (C) 2017 Frank Edelhaeuser <mrpace2@gmail.com>"
 #define I2CLUA_LICENSE          "MIT License"
 #define I2CLUA_TIMESTAMP        __DATE__" "__TIME__
