@@ -1,12 +1,12 @@
 package = 'i2c'
-version = '1.1.1-1'
+version = '1.1.2-1'
 source = {
     url = 'git://github.com/mrpace2/lua-i2c',
-    tag = 'v1.1.1'
+    tag = 'v1.1.2'
 }
 description = {
     summary = 'I2C Lua binding',
-    detailed = [[ This is the Lua I2C binding. This binding provides access from Lua scripts to I2C slave devices on I2C busses supported by the Linux kernel. ]],
+    detailed = 'This is the Lua I2C binding. This binding provides access from Lua scripts to I2C slave devices on I2C busses supported by the Linux kernel.',
     homepage = 'https://github.com/mrpace2/lua-i2c',
     license = 'MIT'
 }

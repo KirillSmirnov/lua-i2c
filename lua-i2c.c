@@ -28,10 +28,16 @@
 
 #include <linux/i2c-dev.h>
 
+#ifndef I2C_M_RD
+// Some <linux/i2c-dev.h> (e.g. Debian's) contain parts of <linux/i2c.h> (struct i2c_msg, I2C_M_RD, ...)
+// whereas other <linux/i2c-dev.h> (e.g. OpenWrt's) don't.  Only need <linux/i2c.h> in the latter case.
+#include <linux/i2c.h>
+#endif
+
 
 // definitions
 #define I2CLUA_NAME             "i2c"
-#define I2CLUA_VERSION          "1.1.1"
+#define I2CLUA_VERSION          "1.1.2"
 #define I2CLUA_COPYRIGHT        "Copyright (C) 2017 Frank Edelhaeuser <mrpace2@gmail.com>"
 #define I2CLUA_LICENSE          "MIT License"
 #define I2CLUA_TIMESTAMP        __DATE__" "__TIME__
